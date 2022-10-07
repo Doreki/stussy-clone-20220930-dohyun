@@ -39,8 +39,6 @@ public class ValidationAop {
 
             List<FieldError> fieldErrors = bindingResult.getFieldErrors();
             for (FieldError fieldError : fieldErrors) {
-                System.out.println("fieldError = " + fieldError.getField());
-                System.out.println("fieldError.getDefaultMessage() = " + fieldError.getDefaultMessage());
                 errorMap.put(fieldError.getField(), fieldError.getDefaultMessage());
             }
 
@@ -54,7 +52,6 @@ public class ValidationAop {
         BeanPropertyBindingResult bindingResult = null;
 
         for (Object arg : args) {
-            System.out.println(arg);
             if(arg.getClass() == BeanPropertyBindingResult.class) {
                 bindingResult = (BeanPropertyBindingResult) arg;
                 break;
