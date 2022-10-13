@@ -26,7 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .formLogin()
-                .loginPage("/account/login") //로그인 페이지
+                .loginPage("/account/login") //로그인 페이지 Get요청
+                .loginProcessingUrl("/account/login") //로그인 서비스 Post요청
                 .defaultSuccessUrl("/index"); //로그인 성공하면 이 주소로 보내라
     }
 }
