@@ -1,5 +1,6 @@
 package com.stussy.stussyclone20220930dohyun.config;
 
+import com.stussy.stussyclone20220930dohyun.api.advice.AuthFailureHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -26,8 +27,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .formLogin()
+                .usernameParameter("email") //파라미터 변경
                 .loginPage("/account/login") //로그인 페이지 Get요청
                 .loginProcessingUrl("/account/login") //로그인 서비스 Post요청
+                .failureHandler(new AuthFailureHandler())
                 .defaultSuccessUrl("/index"); //로그인 성공하면 이 주소로 보내라
+
     }
 }
