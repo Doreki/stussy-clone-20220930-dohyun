@@ -23,6 +23,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests() //권한에 관련된 모든 요청
                 .antMatchers("/account/mypage", "/index") //이 주소로 요청이 들어오면
                 .authenticated()//인가를 받아라
+                .antMatchers("/admin/**")//admin url 하위로 실행되는 모든 페이지는
+                .hasRole("ADMIN")//ADMIN 권한이 있어야함 시큐리티가 ROLE이 있는지 확인하고 검증함 ex)ROLE_ADMIN
                 .anyRequest()
                 .permitAll()
                 .and()
