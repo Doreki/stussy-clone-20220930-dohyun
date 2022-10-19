@@ -17,10 +17,12 @@ import java.util.Map;
 @Component
 public class ValidationAop {
 
-    @Pointcut("execution(* com.stussy.stussyclone20220930dohyun..*Api.*(..))")
-    private void executionPointCut() {}
+//    @Pointcut("execution(* com.stussy.stussyclone20220930dohyun..*Api.*(..))")
+//    private void executionPointCut() {}
+    @Pointcut("@annotation(com.stussy.stussyclone20220930dohyun.aop.annotation.ValidAspect)")
+    private void annotationPointCut() {}
 
-    @Around("executionPointCut()")
+    @Around("annotationPointCut()")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 
         BeanPropertyBindingResult bindingResult = searchBindingResult(joinPoint);

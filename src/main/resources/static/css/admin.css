@@ -49,8 +49,12 @@
 }
 
 
-input[type="text"] {
+input[type="text"], input[type="number"] {
     height: 36px;
+}
+
+input[type="number"] {
+    text-align: right;
 }
 
 textarea {
