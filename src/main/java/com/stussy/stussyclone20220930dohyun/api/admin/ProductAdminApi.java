@@ -43,4 +43,5 @@ public class ProductAdminApi {
     public ResponseEntity<?> getCategoryList() throws Exception {
         return ResponseEntity.ok().body(new CMRespDto<>(1, "Get successfully", productManagementService.getCategoryList()));
     }
+
 }
