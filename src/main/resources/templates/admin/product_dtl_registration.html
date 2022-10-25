@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/header.css">
     <link rel="stylesheet" href="/static/css/admin.css">
-    <link rel="stylesheet" href="/static/css/collections-number.css">
+    <link rel="stylesheet" href="/static/css/aside.css">
 </head>
 <body>
     <div id="container">
@@ -56,22 +56,26 @@
             <script src="/static/js/header/header.js"></script>
         </header>
         <main>
-            <ul>
-                <ul class="page-number-list">
-                    <!-- <a href="javascript:void(0)"><li>&#60;</li></a>
-                    <a href="javascript:void(0)"><li>1</li></a>
-                    <a href="javascript:void(0)"><li>2</li></a>
-                    <a href="javascript:void(0)"><li>3</li></a>
-                    <a href="javascript:void(0)"><li>4</li></a>
-                    <a href="javascript:void(0)"><li>5</li></a>
-                    <a href="javascript:void(0)"><li>&#62;</li></a> -->
-                </ul>
-            </ul>
-           <ul class="collection-products">
-                
-           </ul>
+            <div class="admin">
+                <h1 class="admin-title">ADMIN PRODUCT REGISTRATION</h1>
+                <div class="admin-container">
+                    <aside class="admin-menus">
+                        <ul>
+                            <li><a href="/admin/products">상품 조회</a></li>
+                            <li><a href="/admin/product/addition">상품 등록</a></li>
+                            <li><a href="/admin/systems">시스템 정보</a></li>
+                            <li><a href="/logout">로그아웃</a></li>
+                        </ul>
+                    </aside>
+                    <section class="admin-main">
+                        <select class="product-select">
+                        </select>
+                    </section>
+                    
+                </div>
+            </div>
         </main>
     </div>
-    <script src="/static/js/product/collections_number.js"></script>
+    <script src="/static/js/admin/product_dtl_registration.js"></script>
 </body>
 </html>
