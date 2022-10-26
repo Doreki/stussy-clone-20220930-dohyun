@@ -3,6 +3,7 @@ package com.stussy.stussyclone20220930dohyun.api.admin;
 import com.stussy.stussyclone20220930dohyun.aop.annotation.LogAspect;
 import com.stussy.stussyclone20220930dohyun.aop.annotation.ValidAspect;
 import com.stussy.stussyclone20220930dohyun.dto.CMRespDto;
+import com.stussy.stussyclone20220930dohyun.dto.admin.ProductRegisterDtlReqDto;
 import com.stussy.stussyclone20220930dohyun.dto.admin.ProductRegisterReqDto;
 import com.stussy.stussyclone20220930dohyun.service.admin.ProductManagementService;
 import lombok.RequiredArgsConstructor;
@@ -50,4 +51,19 @@ public class ProductAdminApi {
                 .body(new CMRespDto<>(1,"Get Successfully",productManagementService.getProductMstList()));
     }
 
+    @GetMapping("/option/products/size/{productId}")
+    public ResponseEntity<?> getSizeList(@PathVariable int productId) throws Exception {
+        return ResponseEntity.ok()
+                .body(new CMRespDto<>(1,"Get Successfully",productManagementService.getSizeList(productId)));
+    }
+
+    @PostMapping("/product/dtl")
+    public ResponseEntity<?> registerDtl(@RequestBody ProductRegisterDtlReqDto productRegisterDtlReqDto) throws Exception {
+
+        productManagementService.checkDuplicatedColor(productRegisterDtlReqDto);
+        productManagementService.registerDtl(productRegisterDtlReqDto);
+
+        return ResponseEntity.created(null)
+                .body(new CMRespDto<>(1,"Register Successfully", true));
+    }
 }
