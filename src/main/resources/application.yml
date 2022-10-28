@@ -20,4 +20,4 @@ mybatis:
     - /mappers/*.xml
 
 file:
-  path: C:/Users/ITPS/Desktop/IDH/git/stussy-clone-20220930-dohyun/src/main/resources/static/upload/
+  path: classpath:/upload/

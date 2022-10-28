@@ -208,7 +208,7 @@ class ProductImgFile {
             let changeFlag = false;
 
             formData.forEach(value => {
-                if(value.size != 0) {
+                if(value.size != 0) {+
                     this.newImgList.push(value);
                     changeFlag = true;
                 }
