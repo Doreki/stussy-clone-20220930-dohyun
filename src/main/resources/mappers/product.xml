@@ -4,9 +4,9 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="com.stussy.stussyclone20220930junil.repository.ProductRepository">
+<mapper namespace="com.stussy.stussyclone20220930dohyun.repository.ProductRepository">
 
-    <resultMap id="getProductDtl" type="com.stussy.stussyclone20220930junil.domain.ProductDetail">
+    <resultMap id="getProductDtl" type="com.stussy.stussyclone20220930dohyun.domain.ProductDetail">
         <result property="id" column="pdt_dtl_id"></result>
         <result property="pdt_color" column="pdt_color"></result>
         <result property="size_id" column="size_id"></result>
@@ -14,11 +14,11 @@
         <result property="pdt_stock" column="pdt_stock"></result>
     </resultMap>
 
-    <resultMap id="getProductImg" type="com.stussy.stussyclone20220930junil.domain.ProductImg">
+    <resultMap id="getProductImg" type="com.stussy.stussyclone20220930dohyun.domain.ProductImg">
         <result property="save_name" column="save_name"></result>
     </resultMap>
 
-    <resultMap id="getProductMst" type="com.stussy.stussyclone20220930junil.domain.Product">
+    <resultMap id="getProductMst" type="com.stussy.stussyclone20220930dohyun.domain.Product">
         <result property="id" column="pdt_id"></result>
         <result property="pdt_name" column="pdt_name"></result>
         <result property="pdt_price" column="pdt_price"></result>
@@ -31,7 +31,7 @@
         <collection property="pdt_imgs" javaType="list" resultMap="getProductImg"></collection>
     </resultMap>
 
-    <select id="getProductList" parameterType="hashmap" resultType="com.stussy.stussyclone20220930junil.domain.CollectionsProduct">
+    <select id="getProductList" parameterType="hashmap" resultType="com.stussy.stussyclone20220930dohyun.domain.CollectionsProduct">
         select
             pm.id,
             pm.pdt_name,
@@ -82,7 +82,7 @@
         WHERE
             pm.id = #{pdtId}
     </select>
-    <select id="getPaymentProduct" resultType="com.stussy.stussyclone20220930junil.domain.PaymentProduct">
+    <select id="getPaymentProduct" resultType="com.stussy.stussyclone20220930dohyun.domain.PaymentProduct">
         SELECT
             pd.id AS pdt_dtl_id,
             pd.pdt_id,
