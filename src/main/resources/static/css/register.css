@@ -12,6 +12,7 @@
     margin-bottom: 5px;
 
     border: 1px solid rgb(198, 198, 198);
+
     padding: 5px 15px;
 }
 
@@ -27,7 +28,7 @@
     overflow: hidden;
 }
 
-.file-img img{
+.file-img img {
     width: 100%;
 }
 

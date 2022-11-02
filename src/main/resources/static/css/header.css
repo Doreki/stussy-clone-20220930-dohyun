@@ -11,30 +11,31 @@
 
     width: 100%;
     height: 60px;
-    
+
     background-color: white;
 }
 
-.header-left-container{
+.header-left-container {
     display: flex;
     align-items: center;
 }
 
-.site-logo{
+.site-logo {
     display: flex;
     align-items: center;
 
     width: 56px;
     height: 60px;
 }
-.site-logo-img{
-    /* 부모요소의 100% */
-    width:100% 
+
+.site-logo-img {
+    width: 100%;
 }
 
-.nav-menu-button{
+.nav-menu-button {
     display: flex;
     align-items: center;
+
     margin-left: 10px;
     padding: 0px 10px;
 
@@ -57,13 +58,14 @@ nav {
     z-index: 10;
 
     padding-top: 80px;
+
     width: 352px;
     height: 100%;
 
     background-color: white;
 }
 
-.site-nav-mega{
+.site-nav-mega {
     display: flex;
     flex-direction: column;
 
@@ -81,25 +83,28 @@ nav {
     text-decoration: underline;
 }
 
-.header-search-button:hover{
-    opacity: 0.5;
-}
-
-.header-bag-button:hover{
-    opacity: 0.5;
-}
-
-.header-right-container{
-    display: flex;
-    align-content: center;
-}
-.header-country-button{
+.header-right-container {
     display: flex;
     align-items: center;
+}
+
+.header-search-button:hover {
+    opacity: 0.5;
+}
+
+.header-bag-button:hover {
+    opacity: 0.5;
+}
+
+.header-country-button {
+    display: flex;
+    align-items: center;
+
     margin-left: 10px;
-    padding:0;
+    padding: 0;
     width: 20px;
 }
+
 .country-button-img {
     width: 100%;
 }

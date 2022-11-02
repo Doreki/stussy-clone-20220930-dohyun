@@ -3,13 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.stussy.stussyclone20220930dohyun.repository.admin.ProductManagementRepository">
-    <resultMap id="product_category" type="com.stussy.stussyclone20220930dohyun.domain.ProductCategory">
+
+<mapper namespace="com.stussy.stussyclone20220930junil.repository.admin.ProductManagementRepository">
+    <resultMap id="product_category" type="com.stussy.stussyclone20220930junil.domain.ProductCategory">
         <result property="category_id" column="id"/>
         <result property="group_id" column="group_id"/>
         <result property="category_name" column="category_name"/>
     </resultMap>
-
 
     <select id="getCategoryList" resultMap="product_category">
         select
@@ -20,7 +20,7 @@
             pdt_category_mst
     </select>
 
-    <insert id="saveProductMst" parameterType="com.stussy.stussyclone20220930dohyun.domain.Product">
+    <insert id="saveProductMst" parameterType="com.stussy.stussyclone20220930junil.domain.Product">
         insert into
             pdt_mst
         values(
@@ -37,8 +37,8 @@
             now()
         )
     </insert>
-
-    <select id="getProductMstList" resultType="com.stussy.stussyclone20220930dohyun.domain.OptionProductMst">
+    
+    <select id="getProductMstList" resultType="com.stussy.stussyclone20220930junil.domain.OptionProductMst">
         select
             pm.id as pdt_id,
             pcm.category_name as category,
@@ -48,7 +48,7 @@
             left outer join pdt_category_mst pcm on(pcm.id = pm.category_id)
     </select>
 
-    <select id="getSizeList" resultType="com.stussy.stussyclone20220930dohyun.domain.OptionProductSize">
+    <select id="getSizeList" parameterType="Integer" resultType="com.stussy.stussyclone20220930junil.domain.OptionProductSize">
         select
             psd.id as size_id,
             psm.size_name
@@ -62,7 +62,7 @@
     </select>
 
     <select id="findProductColor"
-            parameterType="com.stussy.stussyclone20220930dohyun.domain.ProductDetail"
+            parameterType="com.stussy.stussyclone20220930junil.domain.ProductDetail"
             resultType="Integer">
         select
             count(*)
@@ -74,7 +74,7 @@
         and pdt_color = #{pdt_color}
     </select>
 
-    <insert id="saveProductDtl" parameterType="com.stussy.stussyclone20220930dohyun.domain.ProductDetail">
+    <insert id="saveProductDtl" parameterType="com.stussy.stussyclone20220930junil.domain.ProductDetail">
         insert into
             pdt_dtl
         values(
@@ -102,4 +102,16 @@
             )
         </foreach>
     </insert>
+
+
 </mapper>
+
+
+
+
+
+
+
+
+
+

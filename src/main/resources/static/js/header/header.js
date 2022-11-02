@@ -7,7 +7,6 @@ navMenuButton.onmouseover = () => {
 
 navMenuButton.onmouseout = () => {
     nav.classList.add("nav-invisible");
-    
 }
 
 nav.onmouseover = () => {
@@ -16,5 +15,4 @@ nav.onmouseover = () => {
 
 nav.onmouseout = () => {
     nav.classList.add("nav-invisible");
-    
 }

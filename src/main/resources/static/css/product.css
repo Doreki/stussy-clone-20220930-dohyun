@@ -70,10 +70,9 @@
 }
 
 .no-stock {
-    color:rgb(198,198,198);
+    color:rgb(198, 198, 198);
     text-decoration: line-through;
 }
-
 
 .product-size:checked + label {
     border: 1px solid black;
@@ -86,7 +85,7 @@
     width: 100%;
 
     font-weight: 700;
-    color:white;
+    color: white;
     background-color: black;
 }
 
@@ -111,6 +110,11 @@
     margin-bottom: 10px;
 }
 
+
+
+
+
+
 .other-products {
     display: flex;
     justify-content: space-between;
@@ -125,7 +129,7 @@
     align-items: center;
 
     padding: 15px;
-    
+
     width: 25%;
     height: 30%;
 

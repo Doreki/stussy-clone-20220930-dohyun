@@ -2,15 +2,15 @@ main {
     margin-top: 60px;
 }
 
-.account-title{
+.account-title {
     text-align: center;
     margin-bottom: 30px;
 }
 
-.account-container{
+.account-container {
     display: flex;
     justify-content: center;
-
+    
     margin: 0px auto;
 }
 
@@ -20,7 +20,7 @@ section {
     width: 512px;
 }
 
-.account-subtitle{
+.account-subtitle {
     margin-bottom: 20px;
     border-bottom: 1px solid rgb(198, 198, 198);
     padding-bottom: 20px;
@@ -36,30 +36,31 @@ section {
     margin-bottom: 15px;
 }
 
-.account-button {
-    margin-bottom: 15px;
-    width: 100%;
-
-    font-weight: 700;
-    background-color: black;
-    color: white;
-}
-
 .find-password-link {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 20px;
-    color: rgb(127, 127, 127);
 
+    color: rgb(127, 127, 127);
 }
 
-.errors{
+.account-button {
+    margin-bottom: 15px;
+
+    width: 100%;
+
+    font-weight: 700;
+    color: white;
+    background-color: black;
+}
+
+.errors {
     margin-bottom: 15px;
     color: #e74c3c;
     text-align: center;
 }
 
-.errors-invisible{
+.errors-invisible {
     display: none;
 }
 
@@ -69,7 +70,7 @@ section {
     width: 100%;
 }
 
-.account-name-half{
+.account-name-half {
     width: 50%;
 }
 

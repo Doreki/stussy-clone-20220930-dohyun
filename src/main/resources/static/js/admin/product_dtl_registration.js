@@ -1,13 +1,12 @@
 class CommonApi {
     static #instance = null;
-    
     static getInstance() {
         if(this.#instance == null) {
             this.#instance = new CommonApi();
         }
         return this.#instance;
     }
-
+    
     getProductMstList() {
         let responseData = null;
         $.ajax({
@@ -18,11 +17,10 @@ class CommonApi {
             success: (response) => {
                 responseData = response.data;
             },
-            error : (error) => {
+            error: (error) => {
                 console.log(error);
             }
         });
-
         return responseData;
     }
 
@@ -36,21 +34,16 @@ class CommonApi {
             success: (response) => {
                 responseData = response.data;
             },
-            error : (error) => {
+            error: (error) => {
                 console.log(error);
-                
             }
         });
-
         return responseData;
     }
-
-    
 }
 
 class ProductApi {
     static #instance = null;
-    
     static getInstance() {
         if(this.#instance == null) {
             this.#instance = new ProductApi();
@@ -72,7 +65,9 @@ class ProductApi {
             },
             error: (error) => {
                 console.log(error);
-                alert(`상품 추가 실패.${error.responseJSON.data.error}`);
+                alert(`상품 추가 실패.
+${error.responseJSON.data.error}
+                `)
             }
         })
     }
@@ -94,14 +89,13 @@ class ProductApi {
             error: (error) => {
                 console.log(error);
             }
-
-        })
+        });
     }
+
 }
 
 class Option {
     static #instance = null;
-
     static getInstance() {
         if(this.#instance == null) {
             this.#instance = new Option();
@@ -118,22 +112,23 @@ class Option {
         const pdtMstSelect = document.querySelector(".product-select");
         const responseData = CommonApi.getInstance().getProductMstList();
         if(responseData != null) {
-            if(responseData .length > 0) {
+            if(responseData.length > 0) {
                 responseData.forEach(product => {
+                    console.log(product)
                     pdtMstSelect.innerHTML += `
                         <option value="${product.pdtId}">(${product.category})${product.pdtName}</option>
-                    `
+                    `;
                 });
                 this.addMstSelectEvent();
             }
         }
+
     }
 
     addMstSelectEvent() {
         const pdtMstSelect = document.querySelector(".product-select");
         pdtMstSelect.onchange = () => {
             this.setSizeSelectOptions(pdtMstSelect.value);
-            
         }
     }
 
@@ -142,7 +137,7 @@ class Option {
         pdtSizeSelect.innerHTML = "";
         CommonApi.getInstance().getProductSizeList(productId).forEach(size => {
             pdtSizeSelect.innerHTML += `
-            <option value="${size.sizeId}">${size.sizeName}</option>
+                <option value="${size.sizeId}">${size.sizeName}</option>
             `;
         })
     }
@@ -156,7 +151,6 @@ class Option {
                 "pdtColor": document.querySelector(".product-color").value,
                 "pdtStock": document.querySelector(".product-stock").value
             }
-            console.log(productDtlParams);
             ProductApi.getInstance().registProductDtl(productDtlParams);
         }
     }
@@ -164,7 +158,6 @@ class Option {
 
 class ProductImgFile {
     static #instance = null;
-
     static getInstance() {
         if(this.#instance == null) {
             this.#instance = new ProductImgFile();
@@ -180,19 +173,20 @@ class ProductImgFile {
     }
 
     addUploadEvent() {
-            const uploadButton = document.querySelector(".upload-button");
-            uploadButton.onclick = () => {
-                const formData = new FormData();
+        const uploadButton = document.querySelector(".upload-button");
+        uploadButton.onclick = () => {
+            const formData = new FormData();
 
-                const productId = document.querySelector(".product-select").value;
-                formData.append("pdtId", productId);
+            const productId = document.querySelector(".product-select").value;
+            formData.append("pdtId", productId);
 
-                this.newImgList.forEach(imgFile => {
-                    formData.append("files", imgFile);
-                });
+            this.newImgList.forEach(imgFile => {
+                formData.append("files", imgFile);
+            });
 
-                ProductApi.getInstance().registImgFiles(formData);
-            }
+            ProductApi.getInstance().registImgFiles(formData);
+            
+        }
     }
 
     addFileInputEvent() {
@@ -208,7 +202,7 @@ class ProductImgFile {
             let changeFlag = false;
 
             formData.forEach(value => {
-                if(value.size != 0) {+
+                if(value.size != 0) {
                     this.newImgList.push(value);
                     changeFlag = true;
                 }
@@ -218,6 +212,7 @@ class ProductImgFile {
                 this.loadImgs();
                 filesInput.value = null;
             }
+
         }
     }
 
@@ -232,25 +227,25 @@ class ProductImgFile {
                 fileList.innerHTML += `
                     <li class="file-info">
                         <div class="file-img">
-                            <img src="${e.target.result}" alt="">
+                            <img src="${e.target.result}">
                         </div>
                         <div class="file-name">${imgFile.name}</div>
                         <button type="button" class="btn delete-button">삭제</button>
                     </li>
-                    
                 `;
             }
 
             setTimeout(() => {
                 reader.readAsDataURL(imgFile);
-                
-            }, i * 200); 
+            }, i * 300);
+
         });
 
         setTimeout(() => {
             this.addDeleteEvent();
         }, this.newImgList.length * 300);
 
+        
     }
 
     addDeleteEvent() {
@@ -259,15 +254,17 @@ class ProductImgFile {
         deleteButtons.forEach((deleteButton, i) => {
             deleteButton.onclick = () => {
                 if(confirm("상품을 지우시겠습니까?")) {
-                    this.newImgList.splice(i,1);
+                    this.newImgList.splice(i, 1);
                     this.loadImgs();
                 }
             }
         });
-
-        
     }
+
+    
 }
+
+
 
 window.onload = () => {
     ProductImgFile.getInstance();

@@ -22,34 +22,24 @@
 }
 
 @keyframes visible {
-    fron {
+    from {
         height: 0px;
     }
     to {
         height: 200px;
-    }
-}
-
-@keyframes invisible {
-    fron {
-        height: 200px;
-    }
-    to {
-        height: 0px;
     }
 }
 
 .regist-info {
     display: flex;
-    align-items:  center;
+    align-items: center;
     margin-bottom: 15px;
 
     height: 200px;
     animation: visible 0.2s linear alternate;
 }
 
-
-input[type="text"], input[type="number"] {
+input[type="text"], input[type="number"] { 
     height: 36px;
 }
 
@@ -62,8 +52,6 @@ textarea {
     resize: none;
     overflow-y: auto;
 }
-
-
 
 .regist-info-invisible {
     display: none;
@@ -78,7 +66,7 @@ textarea {
 
 .product-mst {
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
 
     width: 100%;
 }
@@ -87,7 +75,7 @@ textarea {
     margin-top: 30px;
     width: 70%;
     height: 715px;
-
+    
     overflow-y: auto;
 }
 
@@ -95,7 +83,7 @@ textarea {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    
+
     margin-bottom: 5px;
 }
 
@@ -103,8 +91,9 @@ textarea {
     display: flex;
 }
 
-.page-number-list li{
+.page-number-list li {
     margin-right: 3px;
+
     border: 1px solid rgb(198, 198, 198);
     border-radius: 3px;
 
@@ -118,46 +107,48 @@ textarea {
     display: flex;
     justify-content: space-between;
 
-    width:250px;
+    width: 250px;
 }
+
 .search-input {
     width: 200px;
 }
+
 .search-button {
     color: white;
     background-color: black;
 }
+
 .product-mst-list {
     width: 100%;
 }
 
-.product-mst-list tbody {
-    max-height: 100%;
-}
 .product-mst-list td {
     width: 8%;
     padding: 0px 5px;
 }
-.product-mst-list td:nth-child(1) {
-    width: 10%;
-}
 
-.product-mst-list td:nth-child(2) {
+.product-mst-list td:nth-child(1){
     width: 10%;
 }
-.product-mst-list td:nth-child(3) {
+.product-mst-list td:nth-child(2){
+    width: 10%;
+}
+.product-mst-list td:nth-child(3){
     width: 36%;
     text-align: left;
 }
-.product-mst-list td:nth-child(4) {
+.product-mst-list td:nth-child(4){
     width: 12%;
     text-align: right;
 }
+
 .product-mst-list button {
     padding: 3px 7px;
 }
+
 .show-option {
-    width: 28%
+    width: 28%;
 }
 
 .function-container {
@@ -165,11 +156,14 @@ textarea {
     border: 1px solid rgb(198, 198, 198);
     height: 220px;
 }
+
 .show-option label {
-    display:inline-block;
+    display: inline-block;
     padding: 10px 0px 5px;
+
     font-weight: bold;
 }
+
 .show-option textarea {
     margin-bottom: 10px;
     height: 50px;
