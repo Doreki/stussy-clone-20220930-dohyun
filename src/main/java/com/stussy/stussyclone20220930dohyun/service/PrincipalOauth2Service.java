@@ -60,16 +60,19 @@ public class PrincipalOauth2Service extends DefaultOAuth2UserService {
             user = User.builder()
                     .email(email)
                     .password(new BCryptPasswordEncoder().encode(UUID.randomUUID().toString()))
-                    .name((String)attributes.get("name"))
+                    .name((String) oauth2Attributes.get("name"))
                     .provider(provider)
                     .role_id(1)
                     .build();
 
             accountRepository.saveUser(user);
-        } else if (user.getProvider().isBlank() || !user.getProvider().contains(provider)) {
-            // 연동
+        } else if (user.getProvider() == null) {
+            user.setProvider(provider);
+        } else if(!user.getProvider().contains(provider)) {
+            user.setProvider(user.getProvider() + "," + provider);
+            accountRepository.updateProvider(user);
         }
 
-        return new PrincipalDetails(user, attributes);
+        return new PrincipalDetails(user, oauth2Attributes);
     }
 }
